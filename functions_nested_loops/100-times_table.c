@@ -18,7 +18,7 @@ void print_times_table(int n)
 			{
 				s = i * j;
 				putformat(s);
-			}	
+			}
 			_putchar('\n');
 		}
 	}
