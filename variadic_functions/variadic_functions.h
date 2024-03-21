@@ -14,5 +14,5 @@ typedef struct checker
 {
 	char *type;
 	void (*f)();
-} checker;
+};
 #endif
