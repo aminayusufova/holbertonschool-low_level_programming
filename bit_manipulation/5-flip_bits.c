@@ -1,25 +1,35 @@
 #include "main.h"
 
 /**
- * flip_bits - counts the number of bits to change
- * to get from one number to another
- * @n: first number
- * @m: second number
+ * flip_bits - gets the number of bits flipped form n to m
+ * @n: initial lu int
+ * @m: secondary lu int
  *
- * Return: number of bits to change
+ * Return: number of bits need to flip to get from `n to `m`
  */
+
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int g, setbit = 0;
-	unsigned long int current;
-	unsigned long int exclusive = n ^ m;
+	unsigned long int size;
+	unsigned long int flipped;
+	unsigned long int i;
 
-	for (g = 33; g >= 0; g--)
+	size = sizeof(n) * 8 - 1;
+
+	flipped = 0;
+	i = 0;
+
+	while (i <= size)
 	{
-		current = exclusive >> g;
-		if (current & 1)
-			setbit++;
+		if ((n & 1) != (m & 1))
+			flipped++;
+
+		n = n >> 1;
+		m = m >> 1;
+
+		i++;
 	}
 
-	return (setbit);
+	return (flipped);
+
 }
